@@ -1,0 +1,50 @@
+<svg viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0c10;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1c2232;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c8ef5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0c060;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <rect width="1200" height="630" fill="url(#bgGrad)"/>
+  
+  <!-- Accent bar -->
+  <rect width="1200" height="8" fill="url(#accentGrad)"/>
+  
+  <!-- Left side - Content -->
+  <text x="60" y="200" font-family="Inter, sans-serif" font-size="72" font-weight="900" fill="#eef2ff">
+    SANTO<tspan fill="#f0c060">NEA</tspan>
+  </text>
+  
+  <text x="60" y="270" font-family="Noto Serif Khmer, serif" font-size="48" fill="#f0c060">
+    សន្ទនា
+  </text>
+  
+  <text x="60" y="330" font-family="Inter, sans-serif" font-size="24" fill="#94a3b8" font-weight="300">
+    RAG Admin Platform
+  </text>
+  
+  <text x="60" y="360" font-family="Inter, sans-serif" font-size="24" fill="#94a3b8" font-weight="300">
+    Version 1.0
+  </text>
+  
+  <!-- Right side - Icon -->
+  <g transform="translate(950, 250)">
+    <circle cx="0" cy="0" r="120" fill="url(#accentGrad)" opacity="0.15"/>
+    <circle cx="0" cy="0" r="100" fill="none" stroke="#6c8ef5" stroke-width="4" opacity="0.4"/>
+    
+    <!-- Decorative elements -->
+    <circle cx="-40" cy="-40" r="8" fill="#6c8ef5"/>
+    <circle cx="40" cy="40" r="8" fill="#f0c060"/>
+    <circle cx="-40" cy="40" r="6" fill="#f0c060" opacity="0.6"/>
+    <circle cx="40" cy="-40" r="6" fill="#6c8ef5" opacity="0.6"/>
+  </g>
+  
+  <!-- Bottom accent line -->
+  <rect y="622" width="1200" height="8" fill="url(#accentGrad)"/>
+</svg>

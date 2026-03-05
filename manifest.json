@@ -1,0 +1,52 @@
+{
+  "name": "SANTONEA - សន្ទនា",
+  "short_name": "SANTONEA",
+  "description": "A centralised AI-powered RAG admin dashboard for managing users, conversations, and platform settings. វេទិកាគ្រប់គ្រងកណ្ដាលសម្រាប់ការគ្រប់គ្រងអ្នកប្រើ ការត្រួតពិនិត្យការសន្ទនា និងការកំណត់ប្រព័ន្ធ AI RAG របស់អ្នក។",
+  "start_url": "https://www.santonea.com",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "theme_color": "#0a0c10",
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "lang": "en",
+  "categories": ["productivity", "business"],
+  "screenshots": [
+    {
+      "src": "/screenshot.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "View Features",
+      "short_name": "Features",
+      "description": "Explore SANTONEA platform features",
+      "url": "/#features"
+    },
+    {
+      "name": "មើលមុខងារ",
+      "short_name": "មុខងារ",
+      "description": "ស្វាគមន៍មកទីលានមុខងារនៃវេទិកា SANTONEA",
+      "url": "/#features"
+    }
+  ]
+}

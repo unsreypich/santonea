@@ -1,0 +1,13 @@
+# robots.txt for SANTONEA (សន្ទនា)
+# Robots file for search engine crawlers
+
+User-agent: *
+Allow: /
+Disallow: /assets/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://www.santonea.com/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+Crawl-delay: 1

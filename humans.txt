@@ -1,0 +1,26 @@
+Human: The SANTONEA Team
+Website: https://www.santonea.com
+
+/* TEAM */
+Role: Development & Design
+Technology: HTML, CSS, JavaScript
+
+/* SITE */
+Language: English, Khmer (ខ្មែរ)
+Template: Custom Built
+Framework: Vanilla JavaScript
+
+/* THANKS */
+Thanks to the open-source community and all contributors.
+
+Fonts:
+- Inter: https://rsms.me/inter/
+- Noto Serif Khmer: Google Fonts
+- InterKhmerLooped: Custom Khmer Support
+
+/* ខ្មែរ */
+ឈ្មោះក្រុម: ក្រុម SANTONEA
+គេហទំព័រ: https://www.santonea.com
+ដែនកំណត់: ព័ត៌មាន ការគ្រប់គ្រង និងវេទិកា
+
+Updated: 2026-03-05
