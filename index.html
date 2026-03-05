@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark" data-lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SANTONEA - សន្ទនា</title>
+  <meta name="description" content="SANTONEA - A centralised AI-powered RAG admin dashboard for managing users, conversations, and platform settings." />
+  <meta property="og:title" content="SANTONEA - សន្ទនា" />
+  <meta property="og:description" content="A centralised administration platform for your AI-powered RAG system." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.santonea.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="SANTONEA - សន្ទនា" />
+  
+  <!-- Google Fonts: Inter for English -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Serif+Khmer:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  
+  <!-- External Stylesheet with local InterKhmer fonts -->
+  <link rel="stylesheet" href="styles.css" />
+  
+  <!-- Minimal fallback styles for critical rendering path -->
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    [data-lang="km"] .en { display: none !important; }
+    [data-lang="en"] .km { display: none !important; }
+  </style>
+</head>
+<body>
+
+<!-- ── NAV ────────────────────────────────────────────────────────────── -->
+<nav>
+  <a href="#" class="nav-logo">
+    <span class="word-en">SANTONEA</span>
+    <span class="word-km">សន្ទនា</span>
+  </a>
+  <div class="nav-controls">
+    <!-- Language toggle -->
+    <div style="display:flex;gap:4px;padding:3px;border-radius:999px;border:1px solid var(--border2);background:var(--bg2);">
+      <button class="pill-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+      <button class="pill-btn"        id="btn-km" onclick="setLang('km')">ខ្មែរ</button>
+    </div>
+    <!-- Dark/light toggle -->
+    <button class="icon-btn" id="theme-btn" onclick="toggleTheme()" title="Toggle theme"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></button>
+    <!-- CTA -->
+    <a href="#features" class="cta-nav">
+      <span class="en">Explore Features</span>
+      <span class="km">មុខងារ</span>
+    </a>
+  </div>
+</nav>
+
+<!-- ── HERO ───────────────────────────────────────────────────────────── -->
+<section class="hero" id="home">
+  <div class="hero-inner">
+    <div class="hero-badge">
+      <span style="display:inline-flex;align-items:center;color:var(--accent);"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><path d="M20.2 20.2c2.04-2.03.02-7.36-4.5-11.9-4.54-4.52-9.87-6.54-11.9-4.5-2.04 2.03-.02 7.36 4.5 11.9 4.54 4.52 9.87 6.54 11.9 4.5Z"/><path d="M15.7 15.7c4.52-4.54 6.54-9.87 4.5-11.9-2.03-2.04-7.36-.02-11.9 4.5-4.52 4.54-6.54 9.87-4.5 11.9 2.03 2.04 7.36.02 11.9-4.5Z"/></svg></span>
+      <span class="en">RAG Admin Platform · Version 1.0</span>
+      <span class="km">វេទិកា RAG Admin · កំណែ ១.០</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span class="accent">SANTO</span><span class="gold">NEA</span>
+    </h1>
+    <p class="hero-sub-km">សន្ទនា</p>
+
+    <p class="hero-desc">
+      <span class="en">A centralised administration platform for managing users, monitoring conversations, and configuring your AI-powered RAG system — all in one place.</span>
+      <span class="km">វេទិកាគ្រប់គ្រងកណ្ដាលសម្រាប់ការគ្រប់គ្រងអ្នកប្រើ ការត្រួតពិនិត្យការសន្ទនា និងការកម្ណត់ប្រព័ន្ធ AI RAG របស់អ្នក — ទាំងអស់នៅកន្លែងតែមួយ។</span>
+    </p>
+
+    <div class="hero-actions">
+      <a href="#features" class="btn-primary">
+        <span class="en">View Features</span>
+        <span class="km">មើលមុខងារ</span>
+      </a>
+      <a href="#overview" class="btn-outline">
+        <span class="en">Platform Overview</span>
+        <span class="km">ទិដ្ឋភាពទូទៅ</span>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-chip">
+        <strong>5</strong>
+        <span class="en">Core Modules</span>
+        <span class="km">គ្រោងស្នូល</span>
+      </div>
+      <div class="stat-chip">
+        <strong>4</strong>
+        <span class="en">Dev Sprints</span>
+        <span class="km">ការស្ប្រីន</span>
+      </div>
+      <div class="stat-chip">
+        <strong>2</strong>
+        <span class="en">CSV Exports</span>
+        <span class="km">នាំចេញទិន្នន័យ</span>
+      </div>
+      <div class="stat-chip">
+        <strong>RBAC</strong>
+        <span class="en">Access Control</span>
+        <span class="km">ការគ្រប់គ្រងការចូល</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── OVERVIEW ───────────────────────────────────────────────────────── -->
+<section id="overview" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="center reveal">
+    <span class="section-label">
+      <span class="en">Platform Overview</span>
+      <span class="km">ទិដ្ឋភាពទូទៅ</span>
+    </span>
+    <h2 class="section-title">
+      <span class="en">Five Modules.<br/>One Unified Platform.</span>
+      <span class="km">ម៉ូឌុលប្រាំ.<br/>វេទិកាមួយ។</span>
+    </h2>
+    <p class="section-desc">
+      <span class="en">Every part of your RAG system administration lives under a single roof — from monitoring to user governance to configuration.</span>
+      <span class="km">រាល់ផ្នែកនៃការគ្រប់គ្រង RAG របស់អ្នកមានក្រោមមើមដំបូល — ពីការត្រួតពិនិត្យ ដល់ការគ្រប់គ្រងអ្នកប្រើ ដល់ការកំណត់។</span>
+    </p>
+  </div>
+
+  <div class="overview-grid reveal" style="max-width:1100px;margin:3rem auto 0;">
+    <div class="ov-card">
+      <div class="ov-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M3 9h18M9 21V9"/></svg></div>
+      <div class="ov-title"><span class="en">Dashboard</span><span class="km">ផ្ទាំងគ្រប់គ្រង</span></div>
+      <div class="ov-desc"><span class="en">Real-time statistics, activity feed, and quick-action shortcuts for immediate platform visibility.</span><span class="km">ស្ថិតិពេលវេលាជាក់ស្ដែង ព័ត៌មានសកម្មភាព និងផ្លូវកាត់សម្រាប់ការមើលឃើញវេទិកាភ្លាមៗ។</span></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+      <div class="ov-title"><span class="en">Chat History</span><span class="km">ប្រវត្តិការសន្ទនា</span></div>
+      <div class="ov-desc"><span class="en">Browse, search, filter, and tag every conversation on the platform with full detail views.</span><span class="km">រុករក ស្វែងរក ត្រង និងដាក់ស្លាកការសន្ទនាគ្រប់ទាំងអស់ក្នុងវេទិកា។</span></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="ov-title"><span class="en">User Management</span><span class="km">ការគ្រប់គ្រងអ្នកប្រើ</span></div>
+      <div class="ov-desc"><span class="en">View, edit, and organise all user accounts with status indicators, departments, and tag assignments.</span><span class="km">មើល កែប្រែ និងរៀបចំគណនីអ្នកប្រើទាំងអស់ ជាមួយស្ថានភាព នាយកដ្ឋាន និងការដាក់ស្លាក។</span></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29c.94.94 2.48.94 3.42 0l6.58-6.58c.94-.94.94-2.48 0-3.42L12 2Z"/><path d="M7 7h.01"/></svg></div>
+      <div class="ov-title"><span class="en">Tag Management</span><span class="km">ការគ្រប់គ្រងស្លាក</span></div>
+      <div class="ov-desc"><span class="en">Create colour-coded labels and apply them to users and conversations for easy organisation.</span><span class="km">បង្កើតស្លាកពណ៌ និងអនុវត្តវាចំពោះអ្នកប្រើ និងការសន្ទនា។</span></div>
+    </div>
+    <div class="ov-card">
+      <div class="ov-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+      <div class="ov-title"><span class="en">Settings</span><span class="km">ការកំណត់</span></div>
+      <div class="ov-desc"><span class="en">Configure general preferences, notifications, appearance, and security policies from one panel.</span><span class="km">កំណត់ការចូលចិត្ត ការជូនដំណឹង រូបរាង និងគោលការណ៍សុវត្ថិភាព។</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FEATURES ───────────────────────────────────────────────────────── -->
+<section id="features">
+  <div class="features-wrapper">
+
+    <!-- F1: Dashboard -->
+    <div class="feature-block reveal">
+      <div>
+        <div class="feature-num">01 / DASHBOARD</div>
+        <h3 class="feature-title">
+          <span class="en">Platform at a Glance</span>
+          <span class="km">ផ្ទាំងគ្រប់គ្រងទិន្នន័យ</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="en">The home screen provides an instant summary of your platform's health. Four live statistics cards give you numbers that matter, while charts reveal usage trends over time.</span>
+          <span class="km">អេក្រង់ដើមផ្ដល់សង្ខេបភ្លាមៗនៃស្ថានភាពវេទិការបស់អ្នក។ ប័ណ្ណស្ថិតិបួនបង្ហាញចំនួនដែលសំខាន់ ក្នុងពេលដែលក្រាហ្វបង្ហាញនិន្នាការ។</span>
+        </p>
+        <ul class="feature-list">
+          <li><span class="en">Total Users, Today's Chats, Active Documents, Avg Response Time</span><span class="km">អ្នកប្រើសរុប ការសន្ទនាថ្ងៃនេះ ឯកសារសកម្ម ពេលឆ្លើយតបមធ្យម</span></li>
+          <li><span class="en">Bar chart visualisation of historical usage</span><span class="km">ក្រាហ្វរបារបង្ហាញការប្រើប្រាស់ប្រវត្តិ</span></li>
+          <li><span class="en">Live activity feed showing the last 20 admin actions</span><span class="km">ព័ត៌មានសកម្មភាពបង្ហាញសកម្មភាព admin ២០ ចុងក្រោយ</span></li>
+          <li><span class="en">Quick-action shortcuts — View All Users, Export Data</span><span class="km">ផ្លូវកាត់ — មើលអ្នកប្រើ នាំចេញទិន្នន័យ</span></li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+          <span style="font-size:0.65rem;color:var(--text3);margin-left:auto;font-family:var(--font-mono);">dashboard</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-title">
+            <span class="en">OVERVIEW STATISTICS</span>
+            <span class="km">ស្ថិតិទូទៅ</span>
+          </div>
+          <div class="mock-stat-row">
+            <div class="mock-stat"><div class="l"><span class="en">Users</span><span class="km">អ្នកប្រើ</span></div><div class="v">1,284</div></div>
+            <div class="mock-stat"><div class="l"><span class="en">Chats</span><span class="km">ការសន្ទនា</span></div><div class="v">342</div></div>
+            <div class="mock-stat"><div class="l"><span class="en">Docs</span><span class="km">ឯកសារ</span></div><div class="v">58</div></div>
+            <div class="mock-stat"><div class="l"><span class="en">Avg ms</span><span class="km">ms</span></div><div class="v">0.8s</div></div>
+          </div>
+          <div class="mock-bar-chart">
+            <div class="mock-bar-item" style="height:35%;"></div>
+            <div class="mock-bar-item" style="height:55%;"></div>
+            <div class="mock-bar-item" style="height:40%;"></div>
+            <div class="mock-bar-item" style="height:75%;"></div>
+            <div class="mock-bar-item" style="height:60%;"></div>
+            <div class="mock-bar-item" style="height:90%;"></div>
+            <div class="mock-bar-item" style="height:70%;"></div>
+          </div>
+          <div style="font-size:0.6rem;color:var(--text3);font-family:var(--font-mono);">
+            <span class="en">↑ Activity chart · Last 7 days</span>
+            <span class="km">↑ ក្រាហ្វសកម្មភាព · ៧ ថ្ងៃចុងក្រោយ</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F2: Chat History -->
+    <div class="feature-block reverse reveal">
+      <div>
+        <div class="feature-num">02 / CHAT HISTORY</div>
+        <h3 class="feature-title">
+          <span class="en">Full Conversation Control</span>
+          <span class="km">ការត្រួតពិនិត្យការសន្ទនា</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="en">Every conversation on the platform is logged, searchable, and fully accessible. Administrators can drill into any exchange, review AI responses, and manage records with tags and soft-delete.</span>
+          <span class="km">ការសន្ទនាគ្រប់ទាំងអស់ត្រូវបានកត់ត្រា ស្វែងរកបាន និងចូលដំណើរការបានពេញលេញ។ Admin អាចពិនិត្យការឆ្លើយ AI និងគ្រប់គ្រងកំណត់ត្រា។</span>
+        </p>
+        <ul class="feature-list">
+          <li><span class="en">Paginated list — User, Preview, Date, Tags, Actions</span><span class="km">បញ្ជីទំព័រ — អ្នកប្រើ ការមើលជាមុន កាលបរិច្ឆេទ ស្លាក</span></li>
+          <li><span class="en">Advanced filters: date range, user, tags, free-text</span><span class="km">ការត្រងកម្រិតខ្ពស់: ដែនកំណត់ កាលបរិច្ឆេទ អ្នកប្រើ ស្លាក</span></li>
+          <li><span class="en">Full conversation modal with source references</span><span class="km">ម៉ូឌែលការសន្ទនាពេញជាមួយការយោង</span></li>
+          <li><span class="en">In-modal tag editor — add/remove labels without leaving</span><span class="km">កែស្លាកក្នុងម៉ូឌែល — បន្ថែម/លុបស្លាក</span></li>
+          <li><span class="en">Soft-delete preserves data integrity</span><span class="km">ការលុបទន់ — រក្សាភាពត្រឹមត្រូវទិន្នន័យ</span></li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+          <span style="font-size:0.65rem;color:var(--text3);margin-left:auto;font-family:var(--font-mono);">chat-history</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-title">
+            <span class="en">RECENT CONVERSATIONS</span>
+            <span class="km">ការសន្ទនាថ្មីៗ</span>
+          </div>
+          <table class="mock-table">
+            <thead><tr>
+              <th><span class="en">User</span><span class="km">អ្នកប្រើ</span></th>
+              <th><span class="en">Preview</span><span class="km">ការមើល</span></th>
+              <th><span class="en">Tag</span><span class="km">ស្លាក</span></th>
+            </tr></thead>
+            <tbody>
+              <tr>
+                <td>Dara K.</td>
+                <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><span class="en">What is the policy for…</span><span class="km">គោលនយោបាយ…</span></td>
+                <td><span class="mock-tag" style="background:#ebf4ff;color:#3b5bdb;">#vip</span></td>
+              </tr>
+              <tr>
+                <td>Maly S.</td>
+                <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><span class="en">How do I reset my…</span><span class="km">ខ្ញុំ reset…</span></td>
+                <td><span class="mock-tag" style="background:#f0fff4;color:#276749;">#hr</span></td>
+              </tr>
+              <tr>
+                <td>Sokha T.</td>
+                <td style="max-width:120px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;"><span class="en">Can you summarise…</span><span class="km">សង្ខេប…</span></td>
+                <td><span class="mock-tag" style="background:#fff5f5;color:#c53030;">#review</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- F3: User Management -->
+    <div class="feature-block reveal">
+      <div>
+        <div class="feature-num">03 / USER MANAGEMENT</div>
+        <h3 class="feature-title">
+          <span class="en">People & Access, Organised</span>
+          <span class="km">អ្នកប្រើ និងការចូល</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="en">A complete directory of every registered user. Edit profiles, manage account status, assign tags, and view any user's chat history — all from one screen.</span>
+          <span class="km">ថតឈ្មោះពេញលេញនៃអ្នកប្រើដែលបានចុះឈ្មោះ។ កែប្រែប្រវត្តិ គ្រប់គ្រងស្ថានភាព ដាក់ស្លាក និងមើលប្រវត្តិការសន្ទនា។</span>
+        </p>
+        <ul class="feature-list">
+          <li><span class="en">User table — Avatar, Name, Email, Department, Status, Tags</span><span class="km">តារាងអ្នកប្រើ — រូបភាព ឈ្មោះ អ៊ីមែល នាយកដ្ឋាន ស្ថានភាព ស្លាក</span></li>
+          <li><span class="en">Green/Red status dot — Active or Inactive</span><span class="km">ចំណុចព្រីស/ក្រហម — សកម្ម ឬអសកម្ម</span></li>
+          <li><span class="en">Edit, Deactivate, View Chats per user</span><span class="km">កែ អសកម្ម មើលការសន្ទនា សម្រាប់អ្នកប្រើ</span></li>
+          <li><span class="en">Search by name, filter by department</span><span class="km">ស្វែងរកតាមឈ្មោះ ត្រងតាមនាយកដ្ឋាន</span></li>
+          <li><span class="en">Admin action audit log per user</span><span class="km">កំណត់ហេតុសកម្មភាព admin សម្រាប់អ្នកប្រើ</span></li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+          <span style="font-size:0.65rem;color:var(--text3);margin-left:auto;font-family:var(--font-mono);">user-management</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-title">
+            <span class="en">USER DIRECTORY</span>
+            <span class="km">ថតឈ្មោះអ្នកប្រើ</span>
+          </div>
+          <div class="mock-user-row">
+            <div class="mock-avatar"></div>
+            <div><div class="mock-uname">Dara Kosal</div><div class="mock-udept"><span class="en">Engineering</span><span class="km">វិស្វកម្ម</span></div></div>
+            <span class="mock-tag" style="background:#ebf4ff;color:#3b5bdb;font-size:0.55rem;margin-left:8px;">#vip</span>
+            <div class="mock-dot-status" style="background:#48bb78;"></div>
+          </div>
+          <div class="mock-user-row">
+            <div class="mock-avatar" style="background:var(--gold);"></div>
+            <div><div class="mock-uname">Maly Sreang</div><div class="mock-udept"><span class="en">HR Dept</span><span class="km">នាយកដ្ឋាន HR</span></div></div>
+            <span class="mock-tag" style="background:#f0fff4;color:#276749;font-size:0.55rem;margin-left:8px;">#hr</span>
+            <div class="mock-dot-status" style="background:#48bb78;"></div>
+          </div>
+          <div class="mock-user-row">
+            <div class="mock-avatar" style="background:#e88c3a;"></div>
+            <div><div class="mock-uname">Sokha Thon</div><div class="mock-udept"><span class="en">Finance</span><span class="km">ហិរញ្ញវត្ថុ</span></div></div>
+            <span class="mock-tag" style="background:#fff5f5;color:#c53030;font-size:0.55rem;margin-left:8px;">#review</span>
+            <div class="mock-dot-status" style="background:#fc8181;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- F4: Tag Management -->
+    <div class="feature-block reverse reveal">
+      <div>
+        <div class="feature-num">04 / TAG MANAGEMENT</div>
+        <h3 class="feature-title">
+          <span class="en">Labels that Bring Order</span>
+          <span class="km">ស្លាកដែលនាំមកនូវរបៀប</span>
+        </h3>
+        <p class="feature-desc">
+          <span class="en">Tags are the organisational backbone across the platform. Create colour-coded labels, assign them to users and conversations, and filter everything by them — instantly.</span>
+          <span class="km">ស្លាកគឺជាស្នូលនៃការរៀបចំនៃវេទិកា។ បង្កើតស្លាកពណ៌ ដាក់ចំពោះអ្នកប្រើ និងការសន្ទនា ហើយត្រងរាល់អ្វីដោយភ្លាម។</span>
+        </p>
+        <ul class="feature-list">
+          <li><span class="en">Visual tag library as coloured pills with usage counts</span><span class="km">ឃ្លាំងស្លាកបង្ហាញជាពណ៌ ជាមួយចំនួនការប្រើ</span></li>
+          <li><span class="en">Create with name + colour picker (preset or custom)</span><span class="km">បង្កើតដោយឈ្មោះ + ជ្រើសពណ៌ (ស្ដង់ដារ ឬផ្ទាល់ខ្លួន)</span></li>
+          <li><span class="en">Edit or delete tags — cascading removal from all records</span><span class="km">កែ ឬលុបស្លាក — លុបពីកំណត់ត្រាទាំងអស់ស្វ័យប្រវត្តិ</span></li>
+          <li><span class="en">Assign to users via editor, or to chats via detail modal</span><span class="km">ដាក់ស្លាកចំពោះអ្នកប្រើ ឬការសន្ទនា</span></li>
+        </ul>
+      </div>
+      <div class="feature-mockup">
+        <div class="mock-bar">
+          <div class="mock-dot" style="background:#ff5f57;"></div>
+          <div class="mock-dot" style="background:#febc2e;"></div>
+          <div class="mock-dot" style="background:#28c840;"></div>
+          <span style="font-size:0.65rem;color:var(--text3);margin-left:auto;font-family:var(--font-mono);">tags</span>
+        </div>
+        <div class="mock-body">
+          <div class="mock-title">
+            <span class="en">TAG LIBRARY</span>
+            <span class="km">ឃ្លាំងស្លាក</span>
+          </div>
+          <div class="tag-cloud" style="margin-bottom:1rem;">
+            <span class="tag-pill" style="background:#ebf4ff;color:#3b5bdb;">#vip (34)</span>
+            <span class="tag-pill" style="background:#f0fff4;color:#276749;">#hr (18)</span>
+            <span class="tag-pill" style="background:#fff5f5;color:#c53030;">#review (12)</span>
+            <span class="tag-pill" style="background:#fffff0;color:#744210;">#finance (9)</span>
+            <span class="tag-pill" style="background:#e9d8fd;color:#553c9a;">#premium (41)</span>
+            <span class="tag-pill" style="background:#feebc8;color:#7b341e;">#support (7)</span>
+          </div>
+          <div style="display:flex;gap:0.5rem;align-items:center;">
+            <div style="flex:1;height:28px;border-radius:var(--radius-sm);border:1px solid var(--border2);background:var(--bg);padding:0 0.5rem;display:flex;align-items:center;">
+              <span style="font-size:0.62rem;color:var(--text3);font-family:var(--font-mono);">
+                <span class="en">+ new tag name…</span>
+                <span class="km">+ ឈ្មោះស្លាកថ្មី…</span>
+              </span>
+            </div>
+            <div style="width:28px;height:28px;border-radius:50%;background:#6c8ef5;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── SETTINGS ───────────────────────────────────────────────────────── -->
+<section id="settings" style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="reveal">
+      <span class="section-label">
+        <span class="en">Platform Settings</span>
+        <span class="km">ការកំណត់វេទិកា</span>
+      </span>
+      <h2 class="section-title">
+        <span class="en">Configured Your Way</span>
+        <span class="km">ការកំណត់តាមអ្នក</span>
+      </h2>
+      <p class="section-desc">
+        <span class="en">Four dedicated settings panels let administrators tailor the platform's behaviour, look, and security to match their organisation's needs.</span>
+        <span class="km">បន្ទះការកំណត់បួនអនុញ្ញាតឱ្យ admin ជ្រើសរើសអាកប្បកិរិយា រូបរាង និងសុវត្ថិភាពវេទិកា។</span>
+      </p>
+    </div>
+    <div class="settings-grid reveal">
+      <div class="settings-card">
+        <div class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"/><circle cx="12" cy="12" r="3"/></svg></div>
+        <div class="settings-title"><span class="en">General</span><span class="km">ទូទៅ</span></div>
+        <div class="settings-desc"><span class="en">Core platform preferences and default system behaviours.</span><span class="km">ចំណូលចិត្តស្នូលនៃវេទិកា និងអាកប្បកិរិយាប្រព័ន្ធ។</span></div>
+      </div>
+      <div class="settings-card">
+        <div class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div>
+        <div class="settings-title"><span class="en">Notifications</span><span class="km">ការជូនដំណឹង</span></div>
+        <div class="settings-desc"><span class="en">Alert preferences and notification delivery configuration.</span><span class="km">ចំណូលចិត្តការជូនដំណឹង និងការរៀបចំការបញ្ជូន។</span></div>
+      </div>
+      <div class="settings-card">
+        <div class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"/></svg></div>
+        <div class="settings-title"><span class="en">Appearance</span><span class="km">រូបរាង</span></div>
+        <div class="settings-desc"><span class="en">Theme, colour scheme, and display customisation options.</span><span class="km">ស្បែក ជម្រើសពណ៌ និងការប្ដូររូបរាង។</span></div>
+      </div>
+      <div class="settings-card">
+        <div class="settings-icon"><svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+        <div class="settings-title"><span class="en">Security</span><span class="km">សុវត្ថិភាព</span></div>
+        <div class="settings-desc"><span class="en">Access controls, session policies, and role-based permissions.</span><span class="km">ការគ្រប់គ្រងការចូល គោលនយោបាយ session និងការអនុញ្ញាត។</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPORT ─────────────────────────────────────────────────────────── -->
+<section id="export">
+  <div style="max-width:900px;margin:0 auto;">
+    <div class="reveal">
+      <span class="section-label">
+        <span class="en">Data Export</span>
+        <span class="km">ការនាំចេញទិន្នន័យ</span>
+      </span>
+      <h2 class="section-title">
+        <span class="en">Your Data, Your Reports</span>
+        <span class="km">ទិន្នន័យរបស់អ្នក</span>
+      </h2>
+      <p class="section-desc">
+        <span class="en">Export structured CSV files of platform data for external reporting, compliance reviews, or deeper analysis in your tool of choice.</span>
+        <span class="km">នាំចេញឯកសារ CSV ដែលមានរចនាសម្ព័ន្ធ សម្រាប់ការរាយការណ៍ ឬការវិភាគ។</span>
+      </p>
+    </div>
+    <div class="export-cards reveal">
+      <div class="export-card">
+        <div class="export-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" x2="8" y1="13" y2="13"/><line x1="16" x2="8" y1="17" y2="17"/><line x1="10" x2="8" y1="9" y2="9"/></svg></div>
+        <div class="export-title"><span class="en">Chat History Export</span><span class="km">នាំចេញប្រវត្តិការសន្ទនា</span></div>
+        <div class="export-desc"><span class="en">All conversation records with full metadata — filtered or complete dataset. Ideal for audit reviews and usage analysis.</span><span class="km">កំណត់ត្រាការសន្ទនាទាំងអស់ — ទិន្នន័យដែលបានត្រង ឬពេញ។ ល្អសម្រាប់ការត្រួតពិនិត្យ។</span></div>
+        <div class="export-meta">FORMAT: .CSV  ·  FILTERED OR FULL</div>
+      </div>
+      <div class="export-card">
+        <div class="export-icon"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+        <div class="export-title"><span class="en">User List Export</span><span class="km">នាំចេញបញ្ជីអ្នកប្រើ</span></div>
+        <div class="export-desc"><span class="en">Full user directory with assigned tags, status, and department. Perfect for HR reporting and access reviews.</span><span class="km">ថតឈ្មោះអ្នកប្រើពេញ ជាមួយស្លាក ស្ថានភាព និងនាយកដ្ឋាន។ ល្អសម្រាប់ HR។</span></div>
+        <div class="export-meta">FORMAT: .CSV  ·  INCLUDES TAGS</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── SCOPE ──────────────────────────────────────────────────────────── -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="reveal center">
+      <span class="section-label">
+        <span class="en">Scope Clarity</span>
+        <span class="km">ភាពច្បាស់នៃវិសាលភាព</span>
+      </span>
+      <h2 class="section-title">
+        <span class="en">What Is Not Included</span>
+        <span class="km">អ្វីដែលមិនត្រូវបានដាក់បញ្ចូល</span>
+      </h2>
+      <p class="section-desc">
+        <span class="en">Transparency about scope ensures aligned expectations across all stakeholders.</span>
+        <span class="km">ភាពប្រាកដអំពីវិសាលភាពធានាបានការរំពឹងទុករបស់ភាគីពាក់ព័ន្ធ។</span>
+      </p>
+    </div>
+    <div class="scope-list reveal">
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">End-User Chat Interface</span><span class="km">ចំណុចប្រទាក់ Chat អ្នកប្រើ</span></div><div class="scope-note"><span class="en">The user-facing chat experience is a separate application.</span><span class="km">បទពិសោធន៍ Chat ជាកម្មវិធីដោយឡែក។</span></div></div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">AI Model Configuration</span><span class="km">ការកំណត់ម៉ូដែល AI</span></div><div class="scope-note"><span class="en">Training or replacing the underlying language model is out of scope.</span><span class="km">ការបណ្ដុះបណ្ដាល ឬជំនួសម៉ូដែលភាសា នៅក្រៅវិសាលភាព។</span></div></div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">Document Ingestion</span><span class="km">ការបញ្ចូលឯកសារ</span></div><div class="scope-note"><span class="en">RAG source documents are managed by a separate ingestion pipeline.</span><span class="km">ឯកសារ RAG ត្រូវបានគ្រប់គ្រងដោយ pipeline ដោយឡែក។</span></div></div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">Real-Time Chat Monitoring</span><span class="km">ការត្រួតពិនិត្យការសន្ទនាជាក់ស្ដែង</span></div><div class="scope-note"><span class="en">Live session observation is not available — historical view only.</span><span class="km">ការពិនិត្យ session ផ្ទាល់ — មិនអាចប្រើបានទេ ប្រវត្តិប៉ុណ្ណោះ។</span></div></div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">Custom Analytics Reports</span><span class="km">របាយការណ៍វិភាគផ្ទាល់ខ្លួន</span></div><div class="scope-note"><span class="en">Exports are raw CSV — advanced analytics belong in third-party tools.</span><span class="km">ការនាំចេញ CSV ឆៅ — ការវិភាគកម្រិតខ្ពស់ស្ថិតក្នុងឧបករណ៍ភាគីទីបី។</span></div></div>
+      </div>
+      <div class="scope-item">
+        <div class="scope-x"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" x2="6" y1="6" y2="18"/><line x1="6" x2="18" y1="6" y2="18"/></svg></div>
+        <div><div class="scope-title"><span class="en">Multi-Tenant Administration</span><span class="km">ការគ្រប់គ្រង Multi-Tenant</span></div><div class="scope-note"><span class="en">Single platform instance only — multi-workspace is not in scope.</span><span class="km">ឧទាហរណ៍វេទិកាតែមួយ — multi-workspace នៅក្រៅវិសាលភាព។</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA ────────────────────────────────────────────────────────────── -->
+<section style="padding:4rem clamp(1.5rem,5vw,4rem);">
+  <div class="cta-band reveal">
+    <h2>
+      <span class="en">Ready to Administer Smarter?</span>
+      <span class="km">ត្រៀមខ្លួនគ្រប់គ្រងកាន់តែឆ្លាត?</span>
+    </h2>
+    <p>
+      <span class="en">SANTONEA puts every admin tool you need — in one clean, secure, and fast interface.</span>
+      <span class="km">SANTONEA ដាក់ឧបករណ៍ admin ទាំងអស់ — ក្នុងចំណុចប្រទាក់ស្អាត សុវត្ថិភាព និងលឿន។</span>
+    </p>
+    <a href="#overview" class="btn-white">
+      <span class="en">See All Features</span>
+      <span class="km">មើលមុខងារទាំងអស់</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── FOOTER ─────────────────────────────────────────────────────────── -->
+<footer>
+  <div class="footer-brand">
+    <span class="word-en">SANTONEA</span>
+    <span class="word-km">សន្ទនា</span>
+    <div style="font-size:0.75rem;color:var(--text3);margin-top:0.25rem;font-family:var(--font-mono);">
+      <span class="en">RAG Admin Dashboard · v1.0</span>
+      <span class="km">ផ្ទាំងគ្រប់គ្រង RAG · v1.0</span>
+    </div>
+  </div>
+  <div class="footer-copy">
+    <span class="en">© 2026 SANTONEA. Built for internal administration.</span>
+    <span class="km">© 2026 SANTONEA. បង្កើតសម្រាប់ការគ្រប់គ្រងខាងក្នុង។</span>
+  </div>
+</footer>
+
+<script>
+  // ── Theme ──────────────────────────────────────────────────────────
+  const html = document.documentElement;
+  const themeBtn = document.getElementById('theme-btn');
+
+  function setTheme(t) {
+    html.setAttribute('data-theme', t);
+    themeBtn.innerHTML = t === 'dark'
+      ? `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>`
+      : `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></svg>`;
+    localStorage.setItem('santonea-theme', t);
+  }
+
+  function toggleTheme() {
+    setTheme(html.getAttribute('data-theme') === 'dark' ? 'light' : 'dark');
+  }
+
+  // ── Language ───────────────────────────────────────────────────────
+  const btnEn = document.getElementById('btn-en');
+  const btnKm = document.getElementById('btn-km');
+
+  function setLang(l) {
+    html.setAttribute('data-lang', l);
+    html.setAttribute('lang', l === 'km' ? 'km' : 'en');
+    btnEn.classList.toggle('active', l === 'en');
+    btnKm.classList.toggle('active', l === 'km');
+    localStorage.setItem('santonea-lang', l);
+  }
+
+  // ── Restore prefs ──────────────────────────────────────────────────
+  const savedTheme = localStorage.getItem('santonea-theme') || 'dark';
+  const savedLang  = localStorage.getItem('santonea-lang')  || 'en';
+  setTheme(savedTheme);
+  setLang(savedLang);
+
+  // ── Scroll reveal ──────────────────────────────────────────────────
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
